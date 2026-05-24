@@ -160,14 +160,21 @@ export default function Dashboard({ colors }: DashboardProps) {
   const totalAcertos = results.reduce((acc, r) => acc + r.acertos, 0);
   const totalErros = results.reduce((acc, r) => acc + r.erros, 0);
   const totalQuestoes = results.reduce((acc, r) => acc + r.total_questoes, 0);
-  const percentualGeral = totalQuestoes > 0 ? ((totalAcertos / totalQuestoes) * 100) : 0;
+  const percentualGeral = results.length > 0 ? (results.reduce((acc, r) => acc + r.pf, 0) / results.length) : 0;
 
   const getBlockPerformance = () => {
     const blocks: { [key: string]: { acertos: number; total: number } } = { 
-      CLPAP: { acertos: 0, total: 0 }, 
-      CPJM: { acertos: 0, total: 0 }, 
-      CLIPM: { acertos: 0, total: 0 }, 
-      CP: { acertos: 0, total: 0 } 
+      lp: { acertos: 0, total: 0 }, 
+      historia_mt: { acertos: 0, total: 0 }, 
+      geografia_mt: { acertos: 0, total: 0 }, 
+      fisica: { acertos: 0, total: 0 },
+      matematica: { acertos: 0, total: 0 },
+      quimica: { acertos: 0, total: 0 },
+      rel_inter: { acertos: 0, total: 0 },
+      etica_filosofia: { acertos: 0, total: 0 },
+      informatica: { acertos: 0, total: 0 },
+      gestao_publica: { acertos: 0, total: 0 },
+      leg_basica: { acertos: 0, total: 0 }
     };
     
     results.forEach(r => {
@@ -230,10 +237,17 @@ const tendencia = evolution.length >= 2 ? (evolution[0].media - evolution[evolut
 
   const getRadarData = () => {
     return [
-      { label: "CLPAP", value: blockStats.CLPAP.total > 0 ? (blockStats.CLPAP.acertos / blockStats.CLPAP.total) * 100 : 0 },
-      { label: "CPJM", value: blockStats.CPJM.total > 0 ? (blockStats.CPJM.acertos / blockStats.CPJM.total) * 100 : 0 },
-      { label: "CLIPM", value: blockStats.CLIPM.total > 0 ? (blockStats.CLIPM.acertos / blockStats.CLIPM.total) * 100 : 0 },
-      { label: "CP", value: blockStats.CP.total > 0 ? (blockStats.CP.acertos / blockStats.CP.total) * 100 : 0 },
+      { label: "L.Portuguesa", value: blockStats.lp.total > 0 ? (blockStats.lp.acertos / blockStats.lp.total) * 100 : 0 },
+      { label: "História MT", value: blockStats.historia_mt.total > 0 ? (blockStats.historia_mt.acertos / blockStats.historia_mt.total) * 100 : 0 },
+      { label: "Geografia MT", value: blockStats.geografia_mt.total > 0 ? (blockStats.geografia_mt.acertos / blockStats.geografia_mt.total) * 100 : 0 },
+      { label: "Física", value: blockStats.fisica.total > 0 ? (blockStats.fisica.acertos / blockStats.fisica.total) * 100 : 0 },
+      { label: "Matemática", value: blockStats.matematica.total > 0 ? (blockStats.matematica.acertos / blockStats.matematica.total) * 100 : 0 },
+      { label: "Química", value: blockStats.quimica.total > 0 ? (blockStats.quimica.acertos / blockStats.quimica.total) * 100 : 0 },
+      { label: "R.Interpessoais", value: blockStats.rel_inter.total > 0 ? (blockStats.rel_inter.acertos / blockStats.rel_inter.total) * 100 : 0 },
+      { label: "Ética/Filosofia", value: blockStats.etica_filosofia.total > 0 ? (blockStats.etica_filosofia.acertos / blockStats.etica_filosofia.total) * 100 : 0 },
+      { label: "Informática", value: blockStats.informatica.total > 0 ? (blockStats.informatica.acertos / blockStats.informatica.total) * 100 : 0 },
+      { label: "Gestão Pública", value: blockStats.gestao_publica.total > 0 ? (blockStats.gestao_publica.acertos / blockStats.gestao_publica.total) * 100 : 0 },
+      { label: "Leg.Básica", value: blockStats.leg_basica.total > 0 ? (blockStats.leg_basica.acertos / blockStats.leg_basica.total) * 100 : 0 },
     ];
   };
 
