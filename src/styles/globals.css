@@ -6,27 +6,27 @@
 
 body {
   background: #000;
-  color: #fff;
+  color: #f0f0f0;
   font-family: 'Courier New', monospace;
 }
 
 a {
-  color: #ffd700;
+  color: #d48c1e;
 }
 
 a:hover {
-  color: #ffec8b;
+  color: #e8a830;
 }
 
 .military-card {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
-  border: 1px solid #333;
+  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  border: 1px solid #2a2a2a;
   border-radius: 8px;
   padding: 24px;
 }
 
 .military-button {
-  background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
+  background: linear-gradient(180deg, #d48c1e 0%, #a66e14 100%);
   color: #000;
   font-weight: bold;
   padding: 12px 24px;
@@ -38,13 +38,13 @@ a:hover {
 }
 
 .military-button:hover {
-  background: linear-gradient(180deg, #ffec8b 0%, #daa520 100%);
+  background: linear-gradient(180deg, #e8a830 0%, #c4841e 100%);
 }
 
 .military-input {
-  background: #0d0d0d;
-  border: 1px solid #333;
-  color: #fff;
+  background: #080808;
+  border: 1px solid #2a2a2a;
+  color: #f0f0f0;
   padding: 12px;
   border-radius: 4px;
   width: 100%;
@@ -52,10 +52,10 @@ a:hover {
 
 .military-input:focus {
   outline: none;
-  border-color: #ffd700;
+  border-color: #d48c1e;
 }
 
 .hud-line {
-  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  background: linear-gradient(90deg, transparent, #d48c1e, transparent);
   height: 2px;
 }

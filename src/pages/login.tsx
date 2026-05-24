@@ -18,13 +18,13 @@ export default function Login({ colors }: LoginProps) {
   const [loading, setLoading] = useState(false);
 
   const c = colors || {
-    background: "#0d0d0d",
-    backgroundSecondary: "#1a1a1a",
+    background: "#080808",
+    backgroundSecondary: "#121212",
     backgroundTertiary: "#252525",
-    text: "#ffffff",
+    text: "#f0f0f0",
     textSecondary: "#a0a0a0",
-    border: "#333333",
-    gold: "#ffd700",
+    border: "#2a2a2a",
+    gold: "#d48c1e",
     goldHover: "#b8860b",
     green: "#22c55e",
     red: "#ef4444"

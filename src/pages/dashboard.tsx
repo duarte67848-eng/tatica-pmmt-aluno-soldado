@@ -68,18 +68,18 @@ export default function Dashboard({ colors }: DashboardProps) {
   }, []);
 
   const c = colors || {
-    background: "#0d0d0d",
-    backgroundSecondary: "#1a1a1a",
-    backgroundTertiary: "#252525",
-    text: "#ffffff",
-    textSecondary: "#a0a0a0",
-    border: "#333333",
-    gold: "#ffd700",
-    goldHover: "#b8860b",
-    green: "#22c55e",
-    red: "#ef4444",
-    blue: "#3b82f6",
-    purple: "#a855f7"
+    background: "#080808",
+    backgroundSecondary: "#121212",
+    backgroundTertiary: "#1e1e1e",
+    text: "#f0f0f0",
+    textSecondary: "#808080",
+    border: "#2a2a2a",
+    gold: "#d48c1e",
+    goldHover: "#a66e14",
+    green: "#4a7c3f",
+    red: "#b91c1c",
+    blue: "#2d5a7a",
+    purple: "#6b3fa8"
   };
 
   useEffect(() => {
