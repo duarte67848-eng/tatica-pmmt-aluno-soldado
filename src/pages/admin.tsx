@@ -20,10 +20,14 @@ export default function Admin() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [adminPassword, setAdminPassword] = useState("");
 
-  const ADMIN_SENHA = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1";
-
-  function handleLogin() {
-    if (adminPassword === ADMIN_SENHA) setIsAuthorized(true);
+  async function handleLogin() {
+    const res = await fetch("/api/check-admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: adminPassword })
+    });
+    const data = await res.json();
+    if (data.valid) setIsAuthorized(true);
     else alert("Senha incorreta!");
   }
 
