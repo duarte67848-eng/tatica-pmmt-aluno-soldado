@@ -21,14 +21,18 @@ export default function Admin() {
   const [adminPassword, setAdminPassword] = useState("");
 
   async function handleLogin() {
-    const res = await fetch("/api/check-admin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password: adminPassword })
-    });
-    const data = await res.json();
-    if (data.valid) setIsAuthorized(true);
-    else alert("Senha incorreta!");
+    try {
+      const res = await fetch("/api/check-admin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: adminPassword })
+      });
+      const data = await res.json();
+      if (data.valid) setIsAuthorized(true);
+      else alert("Senha incorreta ou variável ADMIN_PASSWORD não configurada no Vercel.");
+    } catch (e) {
+      alert("Erro ao conectar com o servidor. Verifique se o deploy foi concluído.");
+    }
   }
 
   function showTab(tab: TabType): boolean {
