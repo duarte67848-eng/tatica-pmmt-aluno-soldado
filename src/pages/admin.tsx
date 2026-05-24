@@ -117,11 +117,21 @@ export default function Admin() {
 
   const box = { background: `linear-gradient(180deg, ${c.backgroundSecondary} 0%, ${c.background} 100%)`, border: `1px solid ${c.border}`, borderRadius: "8px", padding: "1.5rem", textAlign: "center" as const };
 
+  function handleLogout() {
+    setIsAuthorized(false);
+    setAdminPassword("");
+  }
+
   return (
     <div>
-      <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: c.gold, marginBottom: "2rem" }}>
-        PAINEL DE ADMINISTRAÇÃO
-      </h1>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+        <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: c.gold, margin: 0 }}>
+          PAINEL DE ADMINISTRAÇÃO
+        </h1>
+        <button onClick={handleLogout} style={{ padding: "8px 20px", background: c.red, color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontWeight: "bold", fontSize: "0.9rem" }}>
+          SAIR
+        </button>
+      </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "1rem", marginBottom: "2rem" }}>
         <div style={box}><div style={{ color: c.textSecondary, fontSize: "0.875rem", marginBottom: "0.5rem" }}>TOTAL ALUNOS</div><div style={{ fontSize: "2rem", fontWeight: "bold", color: c.gold }}>{users.length}</div></div>
